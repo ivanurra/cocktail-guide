@@ -6,3 +6,12 @@ body {
 a {
   color: #00B7FF;
 }
+
+
+#button-main{
+  margin: 5px;
+}
+
+.nav-link{
+  font-size: 20px;
+}
