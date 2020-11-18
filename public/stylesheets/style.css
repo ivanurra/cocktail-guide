@@ -15,3 +15,10 @@ a {
 .nav-link{
   font-size: 20px;
 }
+
+#logo{
+  font-family: 'Italianno', cursive;
+  font-family: 'Norican', cursive;
+  font-size: 40px;
+  color: white;
+}

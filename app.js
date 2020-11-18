@@ -9,9 +9,10 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
+const url = `mongodb+srv://ivan_urra:${process.env.ENV}@cluster0.rx8cz.mongodb.net/Cocktail_Guide?retryWrites=true&w=majority`
 
 mongoose
-  .connect('mongodb://localhost/cocktail-guide', {useNewUrlParser: true})
+.connect(url, {useNewUrlParser: true} ,{useUnifiedTopology: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -23,6 +24,8 @@ const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
 const app = express();
+
+const User = require('./models/User.js')
 
 // Middleware Setup
 app.use(logger('dev'));
@@ -50,9 +53,10 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Express - Generated with IronGenerator';
 
 
-
-const index = require('./routes/index');
+const index = require('./routes/index.js');
 app.use('/', index);
 
+const router = require('./routes/auth.js');
+app.use('/', router);
 
 module.exports = app;
