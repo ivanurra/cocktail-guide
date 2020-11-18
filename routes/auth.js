@@ -67,6 +67,9 @@ router.post('/log-in', (req, res, next)=>{
     })
 })
 
+router.get('/cocktails', (req, res, next)=>{
+  res.render('cocktails')
+})
 
 //MIDDLEWAR
 
