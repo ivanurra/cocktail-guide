@@ -22,3 +22,8 @@ a {
   font-size: 40px;
   color: white;
 }
+
+#footer{
+  background-color: rgb(52, 58, 64);
+  color: white;
+}
