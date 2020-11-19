@@ -1,6 +1,7 @@
 <h1>LOG IN</h1>
+<h3>You must be registered to save your recipes.</h3>
 
-<form action="/log-in" method="POST">
+<form action="/login" method="POST">
 
    <label for="username">Username: </label>
     <input type="text" name="username" id="username">
@@ -8,7 +9,7 @@
     <label for="password">Password: </label>
     <input type="password" name="password" id="password">
     <br>
-    <button class="button is-warning">LOG IN</button>
+    <button type="submit" class="button is-warning">LOG IN</button>
 
     {{#if errorMessage}}
     <p>{{errorMessage}}</p>

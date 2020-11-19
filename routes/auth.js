@@ -1,94 +1,168 @@
 //VARIABLES
 
-const express   = require('express');
-const router    = express.Router();
-const User      = require('../models/User.js')
-const bcrypt    = require ("bcryptjs");
+const express     = require('express');
+const router      = express.Router();
+const bcrypt      = require("bcrypt");
+const passport    = require('passport')
+const ensureLogin = require('connect-ensure-login')
+
+const User        = require('../models/User.js')
+const Cocktail    = require('../models/Cocktail.js')
 
 //ROUTES
 
-router.get('/log-out', (req, res, next)=>{
-  res.render('logout')
+//LOG-OUT
+
+router.get('/logout', (req, res)=>{
+  req.logout()
+  res.redirect('/')
 })
 
-router.get('/sign-up', (req, res, next)=>{
-    res.render('signUp')
+//SIGN-UP
+
+router.get('/signup', (req, res, next) => {
+  res.render('signup');
 })
 
-router.post('/sign-up', (req, res, next)=>{
-    const {username, password} = req.body
-    User.findOne({username: username})
+router.post('/signup', (req, res)=>{
+
+  const {username, password} = req.body
+
+  if(username === '' || password === ''){
+    res.render('signup', {errorMessage: 'You have to fill all the fields'})
+    return
+  }
+
+  User.findOne({username})
     .then((result)=>{
       if(!result){
-        bcrypt.genSalt(10)
-        .then((salt)=>{
-          bcrypt.hash(password, salt)
+        bcrypt.hash(password, 10)
           .then((hashedPassword)=>{
-            const hashedUser = {username: username, password: hashedPassword}
-            User.create(hashedUser)
-            .then((result)=>{
-              res.redirect('/')
-            })
-          })
-        })
-        .catch((err)=>{
-          res.send(err)
-        })
+            User.create({username, password: hashedPassword})
+              .then(()=>res.redirect('/'))
+          })       
       } else {
-        res.render('login', {errorMessage: 'This user already exists. Do you want to Log In?'})
+        res.render('signup', {errorMessage: 'This user already exists. Please, try again'})
       }
     })
-  })
-
-router.get('/log-in', (req, res, next)=>{
-    res.render('login')
+    .catch((err)=>res.send(err)) 
 })
 
-router.post('/log-in', (req, res, next)=>{
-  
-    const username = req.body.username
-    const password = req.body.password
+//LOG-IN
 
-    User.findOne({"username": username})
+router.get('/login', (req, res)=>{
+  res.render('login', {errorMessage: req.flash('error')})
+})
+
+router.post('/login', passport.authenticate("local", {
+  successRedirect: '/',
+  failureRedirect: '/login',
+  failureFlash: true,
+  passReqToCallback: true
+}))
+
+//PRIVATE PAGE
+
+// TODAVÍA NO TENGO CLARO DÓNDE APUNTA *********************************************+
+
+// router.get('/yourcocktails', ensureLogin.ensureLoggedIn(), (req, res)=>{
+//   res.render('recipes/index', {user: req.user.username})
+// })
+
+// checkForAuthentification
+
+const checkForAuthentification = (req, res, next)=>{
+  if(req.isAuthenticated()){
+    return next()
+  } else {
+    res.redirect('login')
+  }
+} 
+
+
+//YOUR COCKTAILS - ROUTES
+
+router.get('/yourcocktails', checkForAuthentification, (req, res)=>{
+
+  Cocktail.find({owner: req.user._id})
     .then((result)=>{
-        if(!result){
-            res.redirect('/log-in', {errorMessage: 'User does not exist'})
-        } else {
-            bcrypt.compare(password, result.password)
-            .then((resultFromBcrypt)=>{
-                if(resultFromBcrypt){
-                    req.session.currentUser = username
-                    res.redirect('/')
-                } else {
-                    res.render('login', {errorMessage:'Password incorrect.'})
-                }
-            })
-        }
+      res.render('recipes/myRecipes', {cocktails: result})
+    })
+    .catch((err)=>{
+      res.send(err)
     })
 })
 
-router.get('/cocktails', (req, res, next)=>{
-  res.render('cocktails')
+//CREATE RECIPE
+
+router.get('/create-recipe', checkForAuthentification, (req, res)=>{
+  res.render('recipes/createRecipe')
 })
 
-//MIDDLEWAR
+//COCKTAILS
 
-router.use((req, res, next) => {
-  if (req.session.currentUser) { 
-    next()
-  } else {                         
-    res.redirect("/log-in")     
-  }                                 
+router.post('/yourcocktails', (req, res)=>{
+  const {name, ingredient1, ingredient2, ingredient3, ingredient4, ingredient5, ingredient6, ingredient7, ingredient8, ingredient9, instructions} = req.body
+  const id = req.user._id
+
+  Cocktail.create({name, ingredient1, ingredient2, ingredient3, ingredient4, ingredient5, ingredient6, ingredient7, ingredient8, ingredient9, instructions, owner: id})
+    .then(() => res.redirect('/yourcocktails'))
+    .catch((err) => res.send(err))
 })
 
-// PRIVATE ROUTES
+// ALL-QUOTES
 
-// router.get('/main', (req, res, next)=>{
-//   res.render('main')
-// })
+router.get('/all-recipes', checkForAuthentification, (req, res)=>{
+  Cocktail.find({})
+    .then((result)=>{
+      res.render('allRecipes', {cocktails: result})
+    })
+    .catch((err)=>{
+      res.send(err)
+    })
+})
 
-// router.get('/private', (req, res, next)=>{
-//   res.render('private')
-// })
+//COCKTAIL ID
+
+router.get('/yourcocktails/:id', (req, res)=>{
+  const id = req.params.id
+  
+  Cocktail.findOne({_id: id})
+    .then((result)=>{
+      if(result.owner.toString() == req.user._id.toString()){
+        res.render('myRecipes')
+      } else {
+        res.redirect('/')        
+      }
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 module.exports = router
+
+// función de login() de passport... para que cuando se haga signup no 
+// tengas que ir a login y loguearte; que ya directamente haciendo signup, 
+// te loguee, cree la sesion, etc...
+
+// User.create(user => {
+//   req.login(result, (err) => {
+//   if(err){return next(err)}
+//   res.redirect('/private-page')
+//   })
+
+// req.login()  es el método de passport para hacer el login. Si lo llamas dentro de la función de signup, te loguea y te redirige donde le mandas
+// testeado en mi app y funciona
