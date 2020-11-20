@@ -1,6 +1,7 @@
 <h1>Your cocktails</h1>
 <br>
 {{#each cocktail}}
+  
   <p>Cocktail name: {{name}}</p>
 
   <p>Ingredient 1: {{ingredient1}}</p>
@@ -23,6 +24,7 @@
 
   <p>Intructions:{{instructions}}</p>
   <br>
+  <p>Author: {{owner}}</p>
   <br>
   <form action="{{_id}}/delete" method="POST">
         <button type="submit">Delete</button>

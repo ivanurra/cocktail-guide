@@ -61,14 +61,6 @@ router.post('/login', passport.authenticate("local", {
   passReqToCallback: true
 }))
 
-// PRIVATE PAGE
-
-// TODAVÍA PENDIENTE *********************************************+
-
-// router.get('/yourcocktails', ensureLogin.ensureLoggedIn(), (req, res)=>{
-//   res.render('recipes/index', {user: req.user.username})
-// })
-
 // CHECK FOR AUTH
 
 const checkForAuthentification = (req, res, next)=>{
@@ -130,13 +122,17 @@ router.post('/:id/delete', (req, res, next) => {
 
 // EDIT RECIPE
 
-router.get('/:id/edit', (req, res, next) => {
+router.get('/:id/edit', checkForAuthentification, (req, res, next) => {
 
   const cocktailID = req.params.id
-  Cocktail.findById(cocktailID)
 
+  Cocktail.findById(cocktailID)
   .then(cocktail => {
+    if(cocktail.owner.toString() == req.user._id.toString()){
       res.render('recipes/edit', cocktail)
+    } else {
+      res.redirect('/')        
+    }
   })
   .catch((error)=>{
       console.log(error)
@@ -146,15 +142,15 @@ router.get('/:id/edit', (req, res, next) => {
 
 // SEE ALL-RECIPES
 
-// router.get('/all-recipes', checkForAuthentification, (req, res)=>{
-//   Cocktail.find({})
-//     .then((result)=>{
-//       res.render('allRecipes', {cocktails: result})
-//     })
-//     .catch((err)=>{
-//       res.send(err)
-//     })
-// })
+router.get('/all-recipes', (req, res)=>{
+  Cocktail.find({})
+    .then((result)=>{
+      res.render('recipes/allRecipes', {cocktail: result})
+    })
+    .catch((err)=>{
+      res.send(err)
+    })
+})
 
 // COCKTAIL ID
 
@@ -187,6 +183,19 @@ router.post('/:id', (req, res, next) => {
 })
 
 module.exports = router
+
+
+
+
+// PRIVATE PAGE
+
+// TODAVÍA PENDIENTE *********************************************+
+
+// router.get('/yourcocktails', ensureLogin.ensureLoggedIn(), (req, res)=>{
+//   res.render('recipes/index', {user: req.user.username})
+// })
+
+
 
 // función de login() de passport... para que cuando se haga signup no 
 // tengas que ir a login y loguearte; que ya directamente haciendo signup, 
