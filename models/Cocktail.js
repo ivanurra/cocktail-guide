@@ -12,9 +12,10 @@ const cocktailSchema = new Schema({
     ingredient7: {type: String},
     ingredient8: {type: String},
     ingredient9: {type: String},
-    instructions: {type: String, required: true}
+    instructions: {type: String, required: true},
+    owner: {type: Schema.Types.ObjectId}
 })
 
-const Cocktail = mongoose.model('Cocktail', cocktailSchema)
+const Cocktail = mongoose.model('cocktail', cocktailSchema)
 
 module.exports = Cocktail

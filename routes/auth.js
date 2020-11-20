@@ -1,4 +1,4 @@
-//VARIABLES
+// VARIABLES
 
 const express     = require('express');
 const router      = express.Router();
@@ -9,16 +9,16 @@ const ensureLogin = require('connect-ensure-login')
 const User        = require('../models/User.js')
 const Cocktail    = require('../models/Cocktail.js')
 
-//ROUTES
+// ROUTES
 
-//LOG-OUT
+// LOG-OUT
 
 router.get('/logout', (req, res)=>{
   req.logout()
   res.redirect('/')
 })
 
-//SIGN-UP
+// SIGN-UP
 
 router.get('/signup', (req, res, next) => {
   res.render('signup');
@@ -48,7 +48,7 @@ router.post('/signup', (req, res)=>{
     .catch((err)=>res.send(err)) 
 })
 
-//LOG-IN
+// LOG-IN
 
 router.get('/login', (req, res)=>{
   res.render('login', {errorMessage: req.flash('error')})
@@ -61,15 +61,15 @@ router.post('/login', passport.authenticate("local", {
   passReqToCallback: true
 }))
 
-//PRIVATE PAGE
+// PRIVATE PAGE
 
-// TODAVÍA NO TENGO CLARO DÓNDE APUNTA *********************************************+
+// TODAVÍA PENDIENTE *********************************************+
 
 // router.get('/yourcocktails', ensureLogin.ensureLoggedIn(), (req, res)=>{
 //   res.render('recipes/index', {user: req.user.username})
 // })
 
-// checkForAuthentification
+// CHECK FOR AUTH
 
 const checkForAuthentification = (req, res, next)=>{
   if(req.isAuthenticated()){
@@ -79,27 +79,28 @@ const checkForAuthentification = (req, res, next)=>{
   }
 } 
 
-
 //YOUR COCKTAILS - ROUTES
+
+//GET COCKTAILS
 
 router.get('/yourcocktails', checkForAuthentification, (req, res)=>{
 
   Cocktail.find({owner: req.user._id})
     .then((result)=>{
-      res.render('recipes/myRecipes', {cocktails: result})
+      res.render('recipes/myRecipes', {cocktail: result})
     })
     .catch((err)=>{
       res.send(err)
     })
 })
 
-//CREATE RECIPE
+// CREATE RECIPE
 
 router.get('/create-recipe', checkForAuthentification, (req, res)=>{
   res.render('recipes/createRecipe')
 })
 
-//COCKTAILS
+// POST COCKTAILS
 
 router.post('/yourcocktails', (req, res)=>{
   const {name, ingredient1, ingredient2, ingredient3, ingredient4, ingredient5, ingredient6, ingredient7, ingredient8, ingredient9, instructions} = req.body
@@ -110,7 +111,7 @@ router.post('/yourcocktails', (req, res)=>{
     .catch((err) => res.send(err))
 })
 
-// ALL-QUOTES
+// SEE ALL-RECIPES
 
 router.get('/all-recipes', checkForAuthentification, (req, res)=>{
   Cocktail.find({})
@@ -122,7 +123,7 @@ router.get('/all-recipes', checkForAuthentification, (req, res)=>{
     })
 })
 
-//COCKTAIL ID
+// COCKTAIL ID
 
 router.get('/yourcocktails/:id', (req, res)=>{
   const id = req.params.id
@@ -130,27 +131,12 @@ router.get('/yourcocktails/:id', (req, res)=>{
   Cocktail.findOne({_id: id})
     .then((result)=>{
       if(result.owner.toString() == req.user._id.toString()){
-        res.render('myRecipes')
+        res.render('recipes/myRecipes')
       } else {
         res.redirect('/')        
       }
     })
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 module.exports = router
 
