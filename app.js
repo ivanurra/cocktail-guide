@@ -111,7 +111,7 @@ app.use('/', index);
 const auth = require('./routes/auth.js');
 app.use('/', auth);
 
-const cocktails = require('./routes/auth.js');
-app.use('/', cocktails);
+// const cocktails = require('./routes/auth.js');
+// app.use('/', cocktails);
 
 module.exports = app;

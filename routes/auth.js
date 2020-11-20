@@ -79,9 +79,9 @@ const checkForAuthentification = (req, res, next)=>{
   }
 } 
 
-//YOUR COCKTAILS - ROUTES
+// YOUR COCKTAILS - ROUTES
 
-//GET COCKTAILS
+// GET COCKTAILS
 
 router.get('/yourcocktails', checkForAuthentification, (req, res)=>{
 
@@ -111,21 +111,54 @@ router.post('/yourcocktails', (req, res)=>{
     .catch((err) => res.send(err))
 })
 
+// DELETE RECIPE
+
+router.post('/:id/delete', (req, res, next) => {
+
+  const cocktailID = req.params.id
+  Cocktail.findByIdAndRemove(cocktailID)
+
+  .then(result => {
+      console.log(result)
+      res.redirect('/yourcocktails')
+  })
+  .catch((error)=>{
+      console.log(error)
+      res.send(error)
+  })
+})
+
+// EDIT RECIPE
+
+router.get('/:id/edit', (req, res, next) => {
+
+  const cocktailID = req.params.id
+  Cocktail.findById(cocktailID)
+
+  .then(cocktail => {
+      res.render('recipes/edit', cocktail)
+  })
+  .catch((error)=>{
+      console.log(error)
+      res.send(error)
+  })
+})
+
 // SEE ALL-RECIPES
 
-router.get('/all-recipes', checkForAuthentification, (req, res)=>{
-  Cocktail.find({})
-    .then((result)=>{
-      res.render('allRecipes', {cocktails: result})
-    })
-    .catch((err)=>{
-      res.send(err)
-    })
-})
+// router.get('/all-recipes', checkForAuthentification, (req, res)=>{
+//   Cocktail.find({})
+//     .then((result)=>{
+//       res.render('allRecipes', {cocktails: result})
+//     })
+//     .catch((err)=>{
+//       res.send(err)
+//     })
+// })
 
 // COCKTAIL ID
 
-router.get('/yourcocktails/:id', (req, res)=>{
+router.get('/:id', (req, res)=>{
   const id = req.params.id
   
   Cocktail.findOne({_id: id})
@@ -136,6 +169,21 @@ router.get('/yourcocktails/:id', (req, res)=>{
         res.redirect('/')        
       }
     })
+})
+
+router.post('/:id', (req, res, next) => {
+
+  const cocktailID = req.params.id
+  Cocktail.findByIdAndUpdate(cocktailID, req.body)
+
+  .then(result => {
+      console.log(result)
+      res.redirect('/yourcocktails')
+  })
+  .catch((error)=>{
+      console.log(error)
+      res.send(error)
+  })
 })
 
 module.exports = router
