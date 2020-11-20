@@ -11,6 +11,12 @@ const Cocktail    = require('../models/Cocktail.js')
 
 // ROUTES
 
+// OUR COCKTAILS
+
+router.get('/cocktails', (req, res)=>{
+  res.render('cocktails')
+})
+
 // LOG-OUT
 
 router.get('/logout', (req, res)=>{
@@ -103,20 +109,19 @@ router.post('/yourcocktails', (req, res)=>{
     .catch((err) => res.send(err))
 })
 
+
+
 // DELETE RECIPE
 
-router.post('/:id/delete', (req, res, next) => {
-
+router.post('/:id/delete', checkForAuthentification, (req, res, next) => {
   const cocktailID = req.params.id
-  Cocktail.findByIdAndRemove(cocktailID)
-
-  .then(result => {
-      console.log(result)
-      res.redirect('/yourcocktails')
-  })
-  .catch((error)=>{
-      console.log(error)
-      res.send(error)
+    Cocktail.findOneAndRemove(cocktailID)
+          .then(result => {
+              if(result.owner.toString() == req.user._id.toString()){
+              console.log(result)
+              res.redirect('/yourcocktails')
+          } else {
+      res.redirect('/')}
   })
 })
 
