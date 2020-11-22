@@ -7,7 +7,6 @@ a {
   color: #00B7FF;
 }
 
-
 #button-main{
   margin: 5px;
 }
@@ -27,4 +26,64 @@ a {
 #footer{
   background-color: rgb(52, 58, 64);
   color: white;
+}
+
+#userAuth{
+  margin: 30px;
+}
+
+#headerDiv{
+  margin-top: 15px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#iconCocktail{
+  width: 30px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.articles{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.img-fluid {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+#strDrink{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 414px) {
+  #logo{
+    font-size: 37px;
+  }
+  footer{
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 375px) {
+  #logo{
+    font-size: 30px;
+  }
+  footer{
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 321px) {
+  #logo{
+    font-size: 21px;
+  }
+  footer{
+    font-size: 10px;
+  }
 }

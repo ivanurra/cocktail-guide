@@ -1,29 +1,35 @@
-<h2>All Recipes</h2>
+<div id="headerDiv">
+  <p class="h5">- ALL YOUR COCKTAILS -</p>
+  <p class="h6">Drink some of the fabulous cocktails from the users of the Cocktail Guide community.</p>
+</div>
+<div class="text-center">
+  <img id="iconCocktail" src="/images/icon.png" class="rounded" alt="cocktail icon">
+</div>
 
 {{#each cocktail}}
-  <p>Cocktail name: {{name}}</p>
+<p>Cocktail name: {{name}}</p>
 
-  <p>Ingredient 1: {{ingredient1}}</p>
+<p>Ingredient 1: {{ingredient1}}</p>
 
-  <p>Ingredient 2: {{ingredient2}}</p>
+<p>Ingredient 2: {{ingredient2}}</p>
 
-  <p>Ingredient 3: {{ingredient3}}</p>
+<p>Ingredient 3: {{ingredient3}}</p>
 
-  <p>Ingredient 4: {{ingredient4}}</p>
+<p>Ingredient 4: {{ingredient4}}</p>
 
-  <p>Ingredient 5: {{ingredient5}}</p>
+<p>Ingredient 5: {{ingredient5}}</p>
 
-  <p>Ingredient 6: {{ingredient6}}</p>
+<p>Ingredient 6: {{ingredient6}}</p>
 
-  <p>Ingredient 7: {{ingredient7}}</p>
+<p>Ingredient 7: {{ingredient7}}</p>
 
-  <p>Ingredient 8: {{ingredient8}}</p>
+<p>Ingredient 8: {{ingredient8}}</p>
 
-  <p>Ingredient 9: {{ingredient9}}</p>
+<p>Ingredient 9: {{ingredient9}}</p>
 
-  <p> {{instructions}}</p>
-  
+<p> {{instructions}}</p>
+
 {{/each}}
 <br>
-<br>
-<a href="/">Back to menu</a>
+<button id="button-main" class="btn btn-secondary btn-lg btn-block" type="button"><a href="/blog">back to
+    top</a></button>

@@ -1,11 +1,27 @@
-<h3>COCKTAILS</h3>
-<br>
-<br>
- <input type="text" id="typedCocktail">
+<div id="headerDiv">
+  <p class="h5">- OUR COCKTAILS -</p>
+  <p class="h6">Enjoy our selection of the best cocktails in the world.</p>
+</div>
 
-  <button onclick="getCocktailInfo()">SEARCH</button>
+<div class="text-center">
+  <img id="iconCocktail" src="/images/icon.png" class="rounded" alt="cocktail icon">
+</div>
 
-  <p id="strDrink"></p>
+{{!-- <input type="text" id="typedCocktail"> --}}
 
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script type="text/javascript" src="/javascripts/script.js"></script>
+<div class="input-group flex-nowrap">
+  {{!-- <div class="input-group-prepend">
+    <span class="input-group-text" id="addon-wrapping">></span>
+  </div> --}}
+  <input id="typedCocktail" type="text" class="form-control" placeholder="write here" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+
+{{!-- <button onclick="getCocktailInfo()">SEARCH</button> --}}
+<button onclick="getCocktailInfo()" type="button" class="btn btn-secondary btn-lg btn-block">SEARCH</button>
+<hr>
+<div id="strDrink"></div>
+<hr>
+
+{{!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript" src="/javascripts/script.js"></script> --}}
+

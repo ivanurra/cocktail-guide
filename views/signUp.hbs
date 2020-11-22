@@ -1,7 +1,4 @@
-<h1>SIGN UP</h1>
-<h3>Good decision! If you register, you can save your recipes.</h3>
-
-
+{{!-- 
 <form action="/signup" method="POST">
 
    <label for="username">Username: </label>
@@ -15,8 +12,28 @@
     {{#if errorMessage}}
     <p>{{errorMessage}}</p>
     {{/if}}
+</form> --}}
+
+<div id="headerDiv">
+    <p class="h5">- SIGN UP -</p>
+    <p class="h6">Register to start creating your cocktails.</p>
+</div>
+<form id="userAuth" action="/signup" method="POST">
+  <div class="form-group">
+      <div>
+            <label for="username">Username</label>
+            <input type="text"  name="username" class="form-control" id="username" aria-describedby="emailHelp">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your info with anyone else.</small>
+      </div>
+  </div>
+  <div class="form-group">
+      <div>
+            <label for="password">Password</label>
+            <input type="password" name="password" class="form-control" id="password">
+      </div>
+  </div>
+  <button type="submit" class="btn btn-secondary">SIGN UP</button>
+    {{#if errorMessage}}
+    <p>{{errorMessage}}</p>
+    {{/if}}
 </form>
-<br>
-<br>
-<br>
-<a href="/">Back to menu</a>

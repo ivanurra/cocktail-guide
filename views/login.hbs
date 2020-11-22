@@ -1,7 +1,7 @@
-<h1>LOG IN</h1>
-<h3>You must be registered to save your recipes.</h3>
+{{!-- <h1>LOG IN</h1>
+<h3>You must be registered to save your recipes.</h3> --}}
 
-<form action="/login" method="POST">
+{{!-- <form action="/login" method="POST">
 
    <label for="username">Username: </label>
     <input type="text" name="username" id="username">
@@ -14,8 +14,27 @@
     {{#if errorMessage}}
     <p>{{errorMessage}}</p>
     {{/if}}
+</form> --}}
+<div id="headerDiv">
+    <p class="h5">- LOG IN -</p>
+    <p class="h6">Come in and start creating your cocktails.</p>
+</div>
+<form id="userAuth" action="/login" method="POST">
+  <div class="form-group">
+      <div>
+            <label for="username">Username</label>
+            <input type="text"  name="username" class="form-control" id="username" aria-describedby="emailHelp">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your info with anyone else.</small>
+      </div>
+  </div>
+  <div class="form-group">
+      <div>
+            <label for="password">Password</label>
+            <input type="password" name="password" class="form-control" id="password">
+      </div>
+  </div>
+  <button type="submit" class="btn btn-secondary">LOG IN</button>
+    {{#if errorMessage}}
+    <p>{{errorMessage}}</p>
+    {{/if}}
 </form>
-<br>
-<br>
-<br>
-<a href="/">Back to menu</a>
