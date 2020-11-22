@@ -59,6 +59,10 @@ a {
   margin-bottom: 15px;
 }
 
+#buttonNoStyle{
+  color: white;
+}
+
 /******** RESPONSIVE ********/
 
 @media (max-width: 414px) {
