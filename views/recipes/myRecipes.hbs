@@ -1,37 +1,36 @@
-<h1>Your cocktails</h1>
-<br>
+<div id="headerDiv">
+  <p class="h5">- YOUR COCKTAILS -</p>
+  <p class="h6">Welcome, {{username}}</p>
+  <p class="h6">Here you have all your creations. Go ahead and upload more recipes.</p>
+</div>
+<div class="text-center">
+  <img id="iconCocktail" src="/images/icon.png" class="rounded" alt="cocktail icon">
+</div>
+
 {{#each cocktail}}
   
-  <p>Cocktail name: {{name}}</p>
-
-  <p>Ingredient 1: {{ingredient1}}</p>
-
-  <p>Ingredient 2: {{ingredient2}}</p>
-
-  <p>Ingredient 3: {{ingredient3}}</p>
-
-  <p>Ingredient 4: {{ingredient4}}</p>
-
-  <p>Ingredient 5: {{ingredient5}}</p>
-
-  <p>Ingredient 6: {{ingredient6}}</p>
-
-  <p>Ingredient 7: {{ingredient7}}</p>
-
-  <p>Ingredient 8: {{ingredient8}}</p>
-
-  <p>Ingredient 9: {{ingredient9}}</p>
-
-  <p>Intructions:{{instructions}}</p>
-  <br>
-  <p>Author: {{owner}}</p>
-  <br>
-  <form action="{{_id}}/delete" method="POST">
-        <button type="submit">Delete</button>
+  <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+  <div class="card-header"><b>Author: {{author}}</b></div>
+  <div class="card-body">
+    <h4 class="card-title"><b>{{name}}</b></h4>
+    <p class="card-text">Ingredients:</p>
+    <p class="card-text">{{ingredient1}}</p>
+    <p class="card-text">{{ingredient2}}</p>
+    <p class="card-text">{{ingredient3}}</p>
+    <p class="card-text">{{ingredient4}}</p>
+    <p class="card-text">{{ingredient5}}</p>
+    <p class="card-text">{{ingredient6}}</p>
+    <p class="card-text">{{ingredient7}}</p>
+    <p class="card-text">{{ingredient8}}</p>
+    <p class="card-text">{{ingredient9}}</p>
+    <p class="card-text">Preparation:<br><br>{{instructions}}</p>
+  </div>
+</div>
+  <form action="{{id}}/delete" method="POST">
+      <button type="submit" class="btn btn-outline-danger">Delete</button>
   </form>
   <br>
-  <button><a href="{{_id}}/edit">Edit data</a></button>
-  </form>
+  <button><a href="{{id}}/edit">Edit data</a></button>
   <br>
   <br>
 {{/each}}

@@ -2,6 +2,7 @@ const mongoose  = require ("mongoose")
 const Schema = mongoose.Schema
 
 const cocktailSchema = new Schema({
+    author: {type: String},
     name: {type: String, required: true},
     ingredient1: {type: String, required: true},
     ingredient2: {type: String},

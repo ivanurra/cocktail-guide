@@ -3,11 +3,14 @@
 <br>
 <form action="/yourcocktails" method="POST">
 
+  <label for="author">Author: </label>
+  <input type="text" name="author" id="author">
+
   <label for="name">Cocktail Name: </label>
-  <input type="text" name="name" id="name">
+  <input type="text" name="name" id="name" placeholder="Required" required="true" minlength="1">
 
   <label for="ingredient1">Ingredient 1: </label>
-  <input type="text" name="ingredient1" id="ingredient1">
+  <input type="text" name="ingredient1" id="ingredient1" placeholder="Required" required="true" minlength="1">
 
   <label for="ingredient2">Ingredient 2: </label>
   <input type="text" name="ingredient2" id="ingredient2">
@@ -34,7 +37,7 @@
   <input type="text" name="ingredient9" id="ingredient9">
 
   <label for="instructions">Instructions: </label>
-  <textarea type="text" name="instructions" id="instructions" > </textarea>
+  <textarea type="text" name="instructions" id="instructions" placeholder="Required" required="true" minlength="1"></textarea>
 
   <button type="submit">Create Quote</button>
 

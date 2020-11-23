@@ -101,29 +101,32 @@ router.get('/create-recipe', checkForAuthentification, (req, res)=>{
 // POST COCKTAILS
 
 router.post('/yourcocktails', (req, res)=>{
-  const {name, ingredient1, ingredient2, ingredient3, ingredient4, ingredient5, ingredient6, ingredient7, ingredient8, ingredient9, instructions} = req.body
+  const {author, name, ingredient1, ingredient2, ingredient3, ingredient4, ingredient5, ingredient6, ingredient7, ingredient8, ingredient9, instructions} = req.body
   const id = req.user._id
 
-  Cocktail.create({name, ingredient1, ingredient2, ingredient3, ingredient4, ingredient5, ingredient6, ingredient7, ingredient8, ingredient9, instructions, owner: id})
+  Cocktail.create({author, name, ingredient1, ingredient2, ingredient3, ingredient4, ingredient5, ingredient6, ingredient7, ingredient8, ingredient9, instructions, owner: id})
     .then(() => res.redirect('/yourcocktails'))
     .catch((err) => res.send(err))
 })
 
-
-
 // DELETE RECIPE
-// findbuidanddelete
+// findByIdAndRemove
 
 router.post('/:id/delete', checkForAuthentification, (req, res, next) => {
-  const cocktailID = req.params.id
-    Cocktail.findOneAndRemove(cocktailID)
+      const cocktailID = req.params.id
+
+      Cocktail.findByIdAndDelete(cocktailID)
           .then(result => {
               if(result.owner.toString() == req.user._id.toString()){
               console.log(result)
               res.redirect('/yourcocktails')
           } else {
-      res.redirect('/')}
-  })
+              res.redirect('/')}
+          })
+          .catch((error)=>{
+              console.log(error)
+              next(error)
+          })
 })
 
 // EDIT RECIPE
@@ -189,29 +192,3 @@ router.post('/:id', (req, res, next) => {
 })
 
 module.exports = router
-
-
-
-
-// PRIVATE PAGE
-
-// TODAVÍA PENDIENTE *********************************************+
-
-// router.get('/yourcocktails', ensureLogin.ensureLoggedIn(), (req, res)=>{
-//   res.render('recipes/index', {user: req.user.username})
-// })
-
-
-
-// función de login() de passport... para que cuando se haga signup no 
-// tengas que ir a login y loguearte; que ya directamente haciendo signup, 
-// te loguee, cree la sesion, etc...
-
-// User.create(user => {
-//   req.login(result, (err) => {
-//   if(err){return next(err)}
-//   res.redirect('/private-page')
-//   })
-
-// req.login()  es el método de passport para hacer el login. Si lo llamas dentro de la función de signup, te loguea y te redirige donde le mandas
-// testeado en mi app y funciona

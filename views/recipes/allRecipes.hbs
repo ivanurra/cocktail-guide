@@ -7,29 +7,22 @@
 </div>
 
 {{#each cocktail}}
-<p>Cocktail name: {{name}}</p>
-
-<p>Ingredient 1: {{ingredient1}}</p>
-
-<p>Ingredient 2: {{ingredient2}}</p>
-
-<p>Ingredient 3: {{ingredient3}}</p>
-
-<p>Ingredient 4: {{ingredient4}}</p>
-
-<p>Ingredient 5: {{ingredient5}}</p>
-
-<p>Ingredient 6: {{ingredient6}}</p>
-
-<p>Ingredient 7: {{ingredient7}}</p>
-
-<p>Ingredient 8: {{ingredient8}}</p>
-
-<p>Ingredient 9: {{ingredient9}}</p>
-
-<p> {{instructions}}</p>
-
+<div class="card text-white bg-dark mb-4" style="max-width: 100rem;">
+  <div class="card-header"><b>Author: {{author}}</b></div>
+  <div class="card-body">
+    <h4 class="card-title"><b>{{name}}</b></h4>
+    <p class="card-text">Ingredients:</p>
+    <p class="card-text">{{ingredient1}}</p>
+    <p class="card-text">{{ingredient2}}</p>
+    <p class="card-text">{{ingredient3}}</p>
+    <p class="card-text">{{ingredient4}}</p>
+    <p class="card-text">{{ingredient5}}</p>
+    <p class="card-text">{{ingredient6}}</p>
+    <p class="card-text">{{ingredient7}}</p>
+    <p class="card-text">{{ingredient8}}</p>
+    <p class="card-text">{{ingredient9}}</p>
+    <p class="card-text">Preparation:<br><br>{{instructions}}</p>
+  </div>
+</div>
 {{/each}}
-<br>
-<button id="button-main" class="btn btn-secondary btn-lg btn-block" type="button"><a id="buttonNoStyle" href="/blog">back to
-    top</a></button>
+<button id="button-main" class="btn btn-secondary btn-lg btn-block" type="button"><a id="buttonNoStyle" href="/all-recipes">back to top</a></button>

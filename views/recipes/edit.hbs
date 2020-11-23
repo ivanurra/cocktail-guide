@@ -1,9 +1,9 @@
 <h1>Edit your cocktail</h1><br>
 <br>
 <form action="/{{_id}}" method="POST">
-    <input type="text" id="name" name="name" value="{{name}}">
+    <input type="text" id="name" name="name" value="{{name}}" placeholder="Mandatory" required="true" minlength="1">
     <br>
-    <input type="text" id="ingredient1" name="ingredient1" value="{{ingredient1}}">
+    <input type="text" id="ingredient1" name="ingredient1" value="{{ingredient1}}" placeholder="Mandatory" required="true" minlength="1">
     <br>
     <input type="text" id="ingredient2" name="ingredient2" value="{{ingredient2}}">
     <br>
@@ -21,7 +21,7 @@
     <br>
     <input type="text" id="ingredient9" name="ingredient9" value="{{ingredient9}}">
     <br>
-    <textarea name="instructions" id="instructions">{{instructions}}</textarea>
+    <textarea name="instructions" id="instructions" placeholder="Mandatory" required="true" minlength="1">{{instructions}}</textarea>
     <br>
 <button type="submit">Edit</button>
 </form>
