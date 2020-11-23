@@ -1,21 +1,74 @@
-<h1>Create new recipe</h1>
-<br>
+<div id="headerDiv">
+  <p class="h5">- CREATE NEW COCKTAIL -</p>
+  <p class="h6">Come on, create something new and tasty.</p>
+</div>
+<div class="text-center">
+  <img id="iconCocktail" src="/images/icon.png" class="rounded" alt="cocktail icon">
+</div>
 <br>
 <form action="/yourcocktails" method="POST">
 
-  <label for="author">Author: </label>
-  <input type="text" name="author" id="author">
+  <div class="input-group mb-3">
+    <input type="text" name="author" id="author" class="form-control" placeholder="Author" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
 
-  <label for="name">Cocktail Name: </label>
-  <input type="text" name="name" id="name" placeholder="Required" required="true" minlength="1">
+  <div class="input-group mb-3">
+    <input type="text" name="name" id="name" class="form-control" placeholder="Cocktail Name. Required." required="true" minlength="1" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
 
-  <label for="ingredient1">Ingredient 1: </label>
-  <input type="text" name="ingredient1" id="ingredient1" placeholder="Required" required="true" minlength="1">
+  <div class="input-group mb-3">
+    <input type="text" name="ingredient1" id="ingredient1" class="form-control" placeholder="Ingredient 1. Required." required="true" minlength="1" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
 
-  <label for="ingredient2">Ingredient 2: </label>
-  <input type="text" name="ingredient2" id="ingredient2">
+  <div class="input-group mb-3">
+    <input type="text" name="ingredient2" id="ingredient2" class="form-control" placeholder="Ingredient 2" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
 
-  <label for="ingredient3">Ingredient 3: </label>
+  <div class="input-group mb-3">
+    <input type="text" name="ingredient3" id="ingredient3" class="form-control" placeholder="Ingredient 3" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+
+  <div class="input-group mb-3">
+    <input type="text" name="ingredient4" id="ingredient4" class="form-control" placeholder="Ingredient 4" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+
+  <div class="input-group mb-3">
+    <input type="text" name="ingredient5" id="ingredient5" class="form-control" placeholder="Ingredient 5" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+
+  <div class="input-group mb-3">
+    <input type="text" name="ingredient6" id="ingredient6" class="form-control" placeholder="Ingredient 6" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+
+  <div class="input-group mb-3">
+    <input type="text" name="ingredient7" id="ingredient7" class="form-control" placeholder="Ingredient 7" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+
+  <div class="input-group mb-3">
+    <input type="text" name="ingredient8" id="ingredient8" class="form-control" placeholder="Ingredient 8" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+
+  <div class="input-group mb-3">
+    <input type="text" name="ingredient9" id="ingredient9" class="form-control" placeholder="Ingredient 9" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+
+  <div class="input-group">
+    <textarea type="text" name="instructions" id="instructions" placeholder="Preparation.Required" class="form-control" aria-label="With textarea"></textarea>
+  </div>
+ 
+  {{!-- <label for="author">Author: </label>
+  <input type="text" name="author" id="author"> --}}
+
+  {{!-- <label for="name">Cocktail Name</label>
+  <input type="text" name="name" id="name" placeholder="Required" required="true" minlength="1"> --}}
+
+  {{!-- <label for="ingredient1">Ingredient 1: </label>
+  <input type="text" name="ingredient1" id="ingredient1" placeholder="Required" required="true" minlength="1"> --}}
+
+  {{!-- <label for="ingredient2">Ingredient 2</label>
+  <input type="text" name="ingredient2" id="ingredient2"> --}}
+
+  {{!-- <label for="ingredient3">Ingredient 3: </label>
   <input type="text" name="ingredient3" id="ingredient3">
 
   <label for="ingredient4">Ingredient 4: </label>
@@ -34,14 +87,15 @@
   <input type="text" name="ingredient8" id="ingredient8">
 
   <label for="ingredient9">Ingredient 9: </label>
-  <input type="text" name="ingredient9" id="ingredient9">
+  <input type="text" name="ingredient9" id="ingredient9"> --}}
 
-  <label for="instructions">Instructions: </label>
-  <textarea type="text" name="instructions" id="instructions" placeholder="Required" required="true" minlength="1"></textarea>
+  {{!-- <label for="instructions">Instructions: </label>
+  <textarea type="text" name="instructions" id="instructions" placeholder="Required" required="true" minlength="1"></textarea> --}}
 
-  <button type="submit">Create Quote</button>
+  {{!-- <button type="submit">CREATE</button> --}}
+  <button id="button-main" class="btn btn-success btn-lg btn-block" type="submit">GO! CREATE</button>
 
 </form>
 <br>
-<a href="/">Back to menu</a>
+<button id="button-main" class="btn btn-secondary btn-lg btn-block" type="button"><a id="buttonNoStyle" href="/yourcocktails">back to your cocktails</a></button>
 

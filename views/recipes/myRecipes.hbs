@@ -1,15 +1,16 @@
 <div id="headerDiv">
   <p class="h5">- YOUR COCKTAILS -</p>
-  <p class="h6">Welcome, {{username}}</p>
   <p class="h6">Here you have all your creations. Go ahead and upload more recipes.</p>
 </div>
 <div class="text-center">
   <img id="iconCocktail" src="/images/icon.png" class="rounded" alt="cocktail icon">
 </div>
-
+<br>
+<button id="button-main" class="btn btn-success btn-lg btn-block" type="button"><a id="buttonNoStyle" href="/create-recipe">CREATE NEW COCKTAIL</a></button>
+<br>
 {{#each cocktail}}
   
-  <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+<div class="card text-white bg-dark mb-3" style="max-width: 100rem;">
   <div class="card-header"><b>Author: {{author}}</b></div>
   <div class="card-body">
     <h4 class="card-title"><b>{{name}}</b></h4>
@@ -26,16 +27,14 @@
     <p class="card-text">Preparation:<br><br>{{instructions}}</p>
   </div>
 </div>
-  <form action="{{id}}/delete" method="POST">
-      <button type="submit" class="btn btn-outline-danger">Delete</button>
-  </form>
-  <br>
-  <button><a href="{{id}}/edit">Edit data</a></button>
-  <br>
-  <br>
+<button type="button" class="btn btn-outline-dark" ><a id="buttonNoStyleTwo" href="{{id}}/edit">Edit</a></button>
+<br>
+<br>
+<form action="{{id}}/delete" method="POST">
+    <button type="submit" class="btn btn-outline-danger">Delete</button>
+</form>
+<br>
 {{/each}}
-<br>
-<a href="/create-recipe">Create recipe</a>
-<br>
-<br>
-<a href="/">Back to menu</a>
+<button id="button-main" class="btn btn-secondary btn-lg btn-block" type="button"><a id="buttonNoStyle" href="/yourcocktails">back to
+    top</a></button>
+
