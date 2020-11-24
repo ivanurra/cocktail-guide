@@ -26,11 +26,11 @@ router.get('/logout', (req, res)=>{
 
 // SIGN-UP
 
-router.get('/sign-up', (req, res, next) => {
+router.get('/signup', (req, res, next) => {
   res.render('signup');
 })
 
-router.post('/sign-up', (req, res)=>{
+router.post('/signup', (req, res)=>{
 
   const {username, password} = req.body
 

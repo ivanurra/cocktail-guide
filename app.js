@@ -16,7 +16,7 @@ const flash         = require('connect-flash')
 
 const User = require('./models/User.js')
 
-const url = `mongodb+srv://ivan_urra:${process.env.ENV}@cluster0.rx8cz.mongodb.net/Cocktail_Guide?retryWrites=true&w=majority`
+const url = `mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@cluster0.rx8cz.mongodb.net/Cocktail_Guide?retryWrites=true&w=majority`
 
 mongoose
 .connect(url, {useNewUrlParser: true, useUnifiedTopology:true})
