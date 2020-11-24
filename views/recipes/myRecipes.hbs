@@ -27,13 +27,15 @@
     <p class="card-text">Preparation:<br><br>{{instructions}}</p>
   </div>
 </div>
-<button type="button" class="btn btn-outline-dark" ><a id="buttonNoStyleTwo" href="{{id}}/edit">Edit</a></button>
-<br>
-<br>
-<form action="{{id}}/delete" method="POST">
-    <button type="submit" class="btn btn-outline-danger">Delete</button>
-</form>
-<br>
+<div id="buttonsGroup">
+    <button type="button" class="btn btn-outline-dark" ><a id="buttonNoStyleTwo" href="{{id}}/edit">Edit</a></button>
+    <br>
+    <br>
+    <form action="{{id}}/delete" method="POST">
+        <button type="submit" class="btn btn-outline-danger">Delete</button>
+    </form>
+    <br>
+</div>
 {{/each}}
 <button id="button-main" class="btn btn-secondary btn-lg btn-block" type="button"><a id="buttonNoStyle" href="/yourcocktails">back to
     top</a></button>

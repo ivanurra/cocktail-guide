@@ -1,7 +1,74 @@
-<h1>Edit your cocktail</h1><br>
+<div id="headerDiv">
+  <p class="h5">- EDIT YOUR COCKTAIL -</p>
+  <p class="h6">Great, keep improving your creation!</p>
+</div>
+<div class="text-center">
+  <img id="iconCocktail" src="/images/icon.png" class="rounded" alt="cocktail icon">
+</div>
 <br>
-<form action="/{{_id}}" method="POST">
-    <input type="text" id="name" name="name" value="{{name}}" placeholder="Mandatory" required="true" minlength="1">
+<form action="/{{id}}" method="POST">
+
+        <div class="input-group mb-3">
+            <input type="text" name="author" id="author" value="{{author}}" class="form-control" placeholder="Author" aria-label="Username"
+                aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group mb-3">
+            <input type="text" name="name" id="name" value="{{name}}" class="form-control" placeholder="Cocktail Name. Required." required="true"
+                minlength="1" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group mb-3">
+            <input type="text" name="ingredient1" id="ingredient1" value="{{ingredient1}}" class="form-control" placeholder="Ingredient 1. Required."
+                required="true" minlength="1" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group mb-3">
+            <input type="text" name="ingredient2" id="ingredient2" value="{{ingredient2}}" class="form-control" placeholder="Ingredient 2"
+                aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group mb-3">
+            <input type="text" name="ingredient3" id="ingredient3" value="{{ingredient3}}" class="form-control" placeholder="Ingredient 3"
+                aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group mb-3">
+            <input type="text" name="ingredient4" id="ingredient4" value="{{ingredient4}}" class="form-control" placeholder="Ingredient 4"
+                aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group mb-3">
+            <input type="text" name="ingredient5" id="ingredient5" value="{{ingredient5}}" class="form-control" placeholder="Ingredient 5"
+                aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group mb-3">
+            <input type="text" name="ingredient6" id="ingredient6" value="{{ingredient6}}" class="form-control" placeholder="Ingredient 6"
+                aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group mb-3">
+            <input type="text" name="ingredient7" id="ingredient7" value="{{ingredient7}}" class="form-control" placeholder="Ingredient 7"
+                aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group mb-3">
+            <input type="text" name="ingredient8" id="ingredient8" value="{{ingredient8}}" class="form-control" placeholder="Ingredient 8"
+                aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group mb-3">
+            <input type="text" name="ingredient9" id="ingredient9" value="{{ingredient9}}" class="form-control" placeholder="Ingredient 9"
+                aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group">
+            <textarea type="text" name="instructions" id="instructions" value="{{instructions}}" placeholder="Preparation.Required" class="form-control"
+                aria-label="With textarea"></textarea>
+        </div>
+
+    {{!-- <input type="text" id="name" name="name" value="{{name}}" placeholder="Mandatory" required="true" minlength="1">
     <br>
     <input type="text" id="ingredient1" name="ingredient1" value="{{ingredient1}}" placeholder="Mandatory" required="true" minlength="1">
     <br>
@@ -21,9 +88,11 @@
     <br>
     <input type="text" id="ingredient9" name="ingredient9" value="{{ingredient9}}">
     <br>
-    <textarea name="instructions" id="instructions" placeholder="Mandatory" required="true" minlength="1">{{instructions}}</textarea>
+    <textarea name="instructions" id="instructions" placeholder="Mandatory" required="true" minlength="1">{{instructions}}</textarea> --}}
+    {{!-- <br>
+    <button type="submit">Edit</button> --}}
     <br>
-<button type="submit">Edit</button>
+    <button id="button-main" class="btn btn-success btn-lg btn-block" type="submit">EDIT</button>
 </form>
 <br>
-<a href="/">Back to menu</a>
+<button id="button-main" class="btn btn-secondary btn-lg btn-block" type="button"><a id="buttonNoStyle" href="/yourcocktails">back to your cocktails</a></button>
