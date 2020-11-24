@@ -26,11 +26,11 @@ router.get('/logout', (req, res)=>{
 
 // SIGN-UP
 
-router.get('/signup', (req, res, next) => {
+router.get('/sign-up', (req, res, next) => {
   res.render('signup');
 })
 
-router.post('/signup', (req, res)=>{
+router.post('/sign-up', (req, res)=>{
 
   const {username, password} = req.body
 
@@ -110,7 +110,6 @@ router.post('/yourcocktails', (req, res)=>{
 })
 
 // DELETE RECIPE
-// findByIdAndRemove
 
 router.post('/:id/delete', checkForAuthentification, (req, res, next) => {
       const cocktailID = req.params.id
