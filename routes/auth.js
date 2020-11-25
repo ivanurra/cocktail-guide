@@ -27,7 +27,7 @@ router.get('/logout', (req, res)=>{
 // SIGN-UP
 
 router.get('/signup', (req, res, next) => {
-  res.render('signup');
+  res.render('sign-up');
 })
 
 router.post('/signup', (req, res)=>{
@@ -35,7 +35,7 @@ router.post('/signup', (req, res)=>{
   const {username, password} = req.body
 
   if(username === '' || password === ''){
-    res.render('signup', {errorMessage: 'You have to fill all the fields'})
+    res.render('sign-up', {errorMessage: 'You have to fill all the fields'})
     return
   }
 
@@ -48,7 +48,7 @@ router.post('/signup', (req, res)=>{
               .then(()=>res.redirect('/'))
           })       
       } else {
-        res.render('signup', {errorMessage: 'This user already exists. Please, try again'})
+        res.render('sign-up', {errorMessage: 'This user already exists. Please, try again'})
       }
     })
     .catch((err)=>res.send(err)) 
