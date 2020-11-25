@@ -9,9 +9,11 @@ const ensureLogin = require('connect-ensure-login')
 const User        = require('../models/User.js')
 const Cocktail    = require('../models/Cocktail.js')
 
-// ROUTES
+////////////
+// ROUTES //
+////////////
 
-// OUR COCKTAILS
+// OUR COCKTAILS - API SEARCH
 
 router.get('/cocktails', (req, res)=>{
   res.render('cocktails')
@@ -77,9 +79,7 @@ const checkForAuthentification = (req, res, next)=>{
   }
 } 
 
-// YOUR COCKTAILS - ROUTES
-
-// GET COCKTAILS
+// YOUR COCKTAILS - RECIPES UPLOADED BY USERS
 
 router.get('/yourcocktails', checkForAuthentification, (req, res)=>{
 
@@ -92,13 +92,13 @@ router.get('/yourcocktails', checkForAuthentification, (req, res)=>{
     })
 })
 
-// CREATE RECIPE
+// CREATE COCKTAIL
 
 router.get('/create-recipe', checkForAuthentification, (req, res)=>{
   res.render('recipes/createRecipe')
 })
 
-// POST COCKTAILS
+// POST COCKTAIL
 
 router.post('/yourcocktails', (req, res)=>{
   const {author, name, ingredient1, ingredient2, ingredient3, ingredient4, ingredient5, ingredient6, ingredient7, ingredient8, ingredient9, instructions} = req.body
@@ -109,7 +109,7 @@ router.post('/yourcocktails', (req, res)=>{
     .catch((err) => res.send(err))
 })
 
-// DELETE RECIPE
+// DELETE COCKTAIL
 
 router.post('/:id/delete', checkForAuthentification, (req, res, next) => {
       const cocktailID = req.params.id
@@ -128,7 +128,7 @@ router.post('/:id/delete', checkForAuthentification, (req, res, next) => {
           })
 })
 
-// EDIT RECIPE
+// EDIT COCKTAIL
 
 router.get('/:id/edit', checkForAuthentification, (req, res, next) => {
 
@@ -148,7 +148,7 @@ router.get('/:id/edit', checkForAuthentification, (req, res, next) => {
   })
 })
 
-// SEE ALL-RECIPES
+// SEE ALL RECIPES FROM ALL USERS
 
 router.get('/all-recipes', (req, res)=>{
   Cocktail.find({})

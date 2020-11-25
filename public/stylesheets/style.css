@@ -1,3 +1,7 @@
+/******************/
+/* GENERAL STYLES */
+/******************/
+
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -7,34 +11,8 @@ a {
   color: white;
 }
 
-#button-main{
-  margin: 5px;
-}
-
-.nav-link{
-  font-size: 20px;
-  margin: 15px;
-}
-
-#logo{
-  font-family: 'Italianno', cursive;
-  font-family: 'Norican', cursive;
-  font-size: 55px;
-  color: white;
-}
-
-#footer{
-  background-color: rgb(52, 58, 64);
-  color: white;
-  font-size: 18px;
-}
-
 #carouselExampleSlidesOnly{
   background-color: rgb(52, 58, 64);
-}
-
-#userAuth{
-  margin: 30px;
 }
 
 #headerDiv{
@@ -61,10 +39,73 @@ a {
   margin-bottom: 25px;
 }
 
+/***********/
+/* NAV BAR */
+/***********/
+
+#button-signup{
+  margin: 5px;
+}
+
+#button-login{
+  margin: 5px;
+}
+
+#button-logout{
+  margin: 5px;
+}
+
+.nav-link{
+  font-size: 20px;
+  margin: 15px;
+}
+
+#logo{
+  font-family: 'Italianno', cursive;
+  font-family: 'Norican', cursive;
+  font-size: 55px;
+  color: white;
+}
+
+#userAuth{
+  margin: 30px;
+}
+
+/**********/
+/* FOOTER */
+/**********/
+
+#footer{
+  background-color: rgb(52, 58, 64);
+  color: white;
+  font-size: 18px;
+}
+
+.linksBlue{
+  color: deepskyblue;
+}
+
+/******************************/
+/* OUR COCKTAILS - API SEARCH */
+/******************************/
+
 #strDrink{
   margin-top: 15px;
   margin-bottom: 15px;
 }
+
+.titles{
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+#ourCocktails{
+  padding: 5px;
+}
+
+/***********/
+/* BUTTONS */
+/***********/
 
 #buttonNoStyle{
   color: white;
@@ -83,18 +124,17 @@ a {
   justify-content: center;
 }
 
-.titles{
-  font-weight: bold;
-  font-size: 1.2em;
-}
-
-#ourCocktails{
-  padding: 5px;
-}
+/********/
+/* BLOG */
+/********/
 
 #blog{
   margin: 5px;
 }
+
+/**************/
+/* INDEX PAGE */
+/**************/
 
 .banner{
   text-align: center;
@@ -124,11 +164,9 @@ a {
   color: white;
 }
 
-.linksBlue{
-  color: deepskyblue;
-}
-
+/****************************/
 /******** RESPONSIVE ********/
+/****************************/
 
 @media (max-width: 415px) {
   #logo{

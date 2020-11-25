@@ -1,3 +1,5 @@
+// CALL TO THE API - thecocktaildb.com/api.php
+
 const getCocktailInfo = ()=>{
 
   const cocktail = document.getElementById('typedCocktail').value
