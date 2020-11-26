@@ -1,6 +1,6 @@
 # COCKTAIL GUIDE
 
-App about the world of cocktails. It contains a search engine that feeds on an API and a CRUD database in MongoDB Atlas with the users of the app and the recipes they can share to it.
+App about the world of cocktails. It contains a search engine that feeds on an API and a CRUD database in MongoDB Atlas with the users of the app and the recipes they can share with it.
 
 ## Starting 🚀
 
@@ -8,8 +8,8 @@ Instructions for getting a copy of the working project on your local machine for
 
 ### Requirements 📋
 
-Fork this repo.
-Clone this repo.
+* Fork this repo.
+* Clone this repo.
 
 ### Installation 🔧
 
