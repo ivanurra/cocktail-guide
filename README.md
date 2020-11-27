@@ -53,5 +53,6 @@ https://cocktailguide.herokuapp.com/
 
 ## License 📄
 
-© 2020 Copyright: Iván Urra
+© 2020 Copyright: Iván Urra.
+
 Personal and non-commercial use.
