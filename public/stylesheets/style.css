@@ -296,7 +296,56 @@ a {
   }
 }
 
+@media (min-width: 1700px) {
+  #ourCocktails{
+    max-width: 30%;
+    margin: 0 auto;
+  }
 
+  .titles{
+    text-align: left;
+  }
 
+  #userAuth{
+    padding-top: 20px;
+    max-width: 25%;
+    margin: 0 auto;
+  }
+  #edit-cocktail{
+    max-width: 30%;
+    margin: 0 auto;
+  }
+  #articles-global{
+    padding-top: 20px;
+    max-width: 30%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 2000px) {
+  #ourCocktails{
+    max-width: 20%;
+    margin: 0 auto;
+  }
+
+  .titles{
+    text-align: left;
+  }
+
+  #userAuth{
+    padding-top: 20px;
+    max-width: 20%;
+    margin: 0 auto;
+  }
+  #edit-cocktail{
+    max-width: 20%;
+    margin: 0 auto;
+  }
+  #articles-global{
+    padding-top: 20px;
+    max-width: 20%;
+    margin: 0 auto;
+  }
+}
 
 

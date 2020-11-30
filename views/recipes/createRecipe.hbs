@@ -6,59 +6,64 @@
   <img id="iconCocktail" src="/images/icon.png" class="rounded" alt="cocktail icon">
 </div>
 <br>
-<form action="/yourcocktails" method="POST">
 
-  <div class="input-group mb-3">
-    <input type="text" name="author" id="author" class="form-control" placeholder="Author" aria-label="Username" aria-describedby="basic-addon1">
-  </div>
+<div id="edit-cocktail">
+    <form action="/yourcocktails" method="POST">
 
-  <div class="input-group mb-3">
-    <input type="text" name="name" id="name" class="form-control" placeholder="Cocktail Name. Required." required="true" minlength="1" aria-label="Username" aria-describedby="basic-addon1">
-  </div>
+      <div class="input-group mb-3">
+        <input type="text" name="author" id="author" class="form-control" placeholder="Author" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
 
-  <div class="input-group mb-3">
-    <input type="text" name="ingredient1" id="ingredient1" class="form-control" placeholder="Ingredient 1. Required." required="true" minlength="1" aria-label="Username" aria-describedby="basic-addon1">
-  </div>
+      <div class="input-group mb-3">
+        <input type="text" name="name" id="name" class="form-control" placeholder="Cocktail Name. Required." required="true" minlength="1" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
 
-  <div class="input-group mb-3">
-    <input type="text" name="ingredient2" id="ingredient2" class="form-control" placeholder="Ingredient 2" aria-label="Username" aria-describedby="basic-addon1">
-  </div>
+      <div class="input-group mb-3">
+        <input type="text" name="ingredient1" id="ingredient1" class="form-control" placeholder="Ingredient 1. Required." required="true" minlength="1" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
 
-  <div class="input-group mb-3">
-    <input type="text" name="ingredient3" id="ingredient3" class="form-control" placeholder="Ingredient 3" aria-label="Username" aria-describedby="basic-addon1">
-  </div>
+      <div class="input-group mb-3">
+        <input type="text" name="ingredient2" id="ingredient2" class="form-control" placeholder="Ingredient 2" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
 
-  <div class="input-group mb-3">
-    <input type="text" name="ingredient4" id="ingredient4" class="form-control" placeholder="Ingredient 4" aria-label="Username" aria-describedby="basic-addon1">
-  </div>
+      <div class="input-group mb-3">
+        <input type="text" name="ingredient3" id="ingredient3" class="form-control" placeholder="Ingredient 3" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
 
-  <div class="input-group mb-3">
-    <input type="text" name="ingredient5" id="ingredient5" class="form-control" placeholder="Ingredient 5" aria-label="Username" aria-describedby="basic-addon1">
-  </div>
+      <div class="input-group mb-3">
+        <input type="text" name="ingredient4" id="ingredient4" class="form-control" placeholder="Ingredient 4" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
 
-  <div class="input-group mb-3">
-    <input type="text" name="ingredient6" id="ingredient6" class="form-control" placeholder="Ingredient 6" aria-label="Username" aria-describedby="basic-addon1">
-  </div>
+      <div class="input-group mb-3">
+        <input type="text" name="ingredient5" id="ingredient5" class="form-control" placeholder="Ingredient 5" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
 
-  <div class="input-group mb-3">
-    <input type="text" name="ingredient7" id="ingredient7" class="form-control" placeholder="Ingredient 7" aria-label="Username" aria-describedby="basic-addon1">
-  </div>
+      <div class="input-group mb-3">
+        <input type="text" name="ingredient6" id="ingredient6" class="form-control" placeholder="Ingredient 6" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
 
-  <div class="input-group mb-3">
-    <input type="text" name="ingredient8" id="ingredient8" class="form-control" placeholder="Ingredient 8" aria-label="Username" aria-describedby="basic-addon1">
-  </div>
+      <div class="input-group mb-3">
+        <input type="text" name="ingredient7" id="ingredient7" class="form-control" placeholder="Ingredient 7" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
 
-  <div class="input-group mb-3">
-    <input type="text" name="ingredient9" id="ingredient9" class="form-control" placeholder="Ingredient 9" aria-label="Username" aria-describedby="basic-addon1">
-  </div>
+      <div class="input-group mb-3">
+        <input type="text" name="ingredient8" id="ingredient8" class="form-control" placeholder="Ingredient 8" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
 
-  <div class="input-group">
-    <textarea type="text" name="instructions" id="instructions" placeholder="Preparation.Required" required="true" minlength="1" class="form-control" aria-label="With textarea"></textarea>
-  </div>
- 
-  <button id="button-main" class="btn btn-success btn-lg btn-block" type="submit">GO! CREATE</button>
+      <div class="input-group mb-3">
+        <input type="text" name="ingredient9" id="ingredient9" class="form-control" placeholder="Ingredient 9" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
 
-</form>
-<br>
-<button id="button-main" class="btn btn-secondary btn-lg btn-block" type="button"><a id="buttonNoStyle" href="/yourcocktails">back to your cocktails</a></button>
+      <div class="input-group">
+        <textarea type="text" name="instructions" id="instructions" placeholder="Preparation.Required" required="true" minlength="1" class="form-control" aria-label="With textarea"></textarea>
+      </div>
+    
+      <button id="button-main" class="btn btn-success btn-lg btn-block" type="submit">GO! CREATE</button>
+
+    </form>
+    <br>
+    <button id="button-main" class="btn btn-secondary btn-lg btn-block" type="button"><a id="buttonNoStyle" href="/yourcocktails">back to your cocktails</a></button>
+</div>
+
+
 
