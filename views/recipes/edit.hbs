@@ -6,7 +6,8 @@
   <img id="iconCocktail" src="/images/icon.png" class="rounded" alt="cocktail icon">
 </div>
 <br>
-<form action="/{{id}}" method="POST">
+<div id="edit-cocktail">
+    <form action="/{{id}}" method="POST">
 
         <div class="input-group mb-3">
             <input type="text" name="author" id="author" value="{{author}}" class="form-control" placeholder="Author" aria-label="Username"
@@ -67,8 +68,11 @@
             <textarea type="text" name="instructions" id="instructions" value="{{instructions}}" placeholder="Preparation.Required" class="form-control"
                 aria-label="With textarea"></textarea>
         </div>
+        <br>
+        <button id="button-main" class="btn btn-success btn-lg btn-block" type="submit">EDIT</button>
+    </form>
     <br>
-    <button id="button-main" class="btn btn-success btn-lg btn-block" type="submit">EDIT</button>
-</form>
-<br>
-<button id="button-main" class="btn btn-secondary btn-lg btn-block" type="button"><a id="buttonNoStyle" href="/yourcocktails">back to your cocktails</a></button>
+    <button id="button-main" class="btn btn-secondary btn-lg btn-block" type="button"><a id="buttonNoStyle" href="/yourcocktails">back to your cocktails</a></button>
+
+</div>
+

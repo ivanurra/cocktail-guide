@@ -6,37 +6,42 @@
   <img id="iconCocktail" src="/images/icon.png" class="rounded" alt="cocktail icon">
 </div>
 <br>
-<button id="button-main" class="btn btn-success btn-lg btn-block" type="button"><a id="buttonNoStyle" href="/create-recipe">CREATE NEW COCKTAIL</a></button>
-<br>
-{{#each cocktail}}
-  
-<div class="card text-white bg-dark mb-3" style="max-width: 100rem;">
-  <div class="card-header"><b>Author: {{author}}</b></div>
-  <div class="card-body">
-    <h4 class="card-title"><b>{{name}}</b></h4>
-    <p class="card-text">Ingredients:</p>
-    <p class="card-text">{{ingredient1}}</p>
-    <p class="card-text">{{ingredient2}}</p>
-    <p class="card-text">{{ingredient3}}</p>
-    <p class="card-text">{{ingredient4}}</p>
-    <p class="card-text">{{ingredient5}}</p>
-    <p class="card-text">{{ingredient6}}</p>
-    <p class="card-text">{{ingredient7}}</p>
-    <p class="card-text">{{ingredient8}}</p>
-    <p class="card-text">{{ingredient9}}</p>
-    <p class="card-text">Preparation:<br><br>{{instructions}}</p>
-  </div>
+
+<div id="edit-cocktail">
+
+    <button id="button-main" class="btn btn-success btn-lg btn-block" type="button"><a id="buttonNoStyle" href="/create-recipe">CREATE NEW COCKTAIL</a></button>
+    <br>
+    {{#each cocktail}}
+    <div class="card text-white bg-dark mb-3" style="max-width: 100rem;">
+      <div class="card-header"><b>Author: {{author}}</b></div>
+      <div class="card-body">
+        <h4 class="card-title"><b>{{name}}</b></h4>
+        <p class="card-text">Ingredients:</p>
+        <p class="card-text">{{ingredient1}}</p>
+        <p class="card-text">{{ingredient2}}</p>
+        <p class="card-text">{{ingredient3}}</p>
+        <p class="card-text">{{ingredient4}}</p>
+        <p class="card-text">{{ingredient5}}</p>
+        <p class="card-text">{{ingredient6}}</p>
+        <p class="card-text">{{ingredient7}}</p>
+        <p class="card-text">{{ingredient8}}</p>
+        <p class="card-text">{{ingredient9}}</p>
+        <p class="card-text">Preparation:<br><br>{{instructions}}</p>
+      </div>
+    </div>
+    <div id="buttonsGroup">
+        <button type="button" class="btn btn-outline-dark" ><a id="buttonNoStyleTwo" href="{{id}}/edit">Edit</a></button>
+        <br>
+        <br>
+        <form action="{{id}}/delete" method="POST">
+            <button type="submit" class="btn btn-outline-danger">Delete</button>
+        </form>
+        <br>
+    </div>
+    {{/each}}
+    <button id="button-main" class="btn btn-secondary btn-lg btn-block" type="button"><a id="buttonNoStyle" href="/yourcocktails">back to
+        top</a></button>
 </div>
-<div id="buttonsGroup">
-    <button type="button" class="btn btn-outline-dark" ><a id="buttonNoStyleTwo" href="{{id}}/edit">Edit</a></button>
-    <br>
-    <br>
-    <form action="{{id}}/delete" method="POST">
-        <button type="submit" class="btn btn-outline-danger">Delete</button>
-    </form>
-    <br>
-</div>
-{{/each}}
-<button id="button-main" class="btn btn-secondary btn-lg btn-block" type="button"><a id="buttonNoStyle" href="/yourcocktails">back to
-    top</a></button>
+
+
 

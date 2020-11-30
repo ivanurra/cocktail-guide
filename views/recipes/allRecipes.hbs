@@ -5,25 +5,26 @@
 <div class="text-center">
   <img id="iconCocktail" src="/images/icon.png" class="rounded" alt="cocktail icon">
 </div>
-
-{{#each cocktail}}
-<div class="card text-white bg-dark mb-4" style="max-width: 100rem;">
-  <div class="card-header"><b>Author: {{author}}</b></div>
-  <div class="card-body">
-    <h4 class="card-title"><b>{{name}}</b></h4>
-    <p class="card-text"><b>Ingredients:</b></p>
-    <p class="card-text">{{ingredient1}}</p>
-    <p class="card-text">{{ingredient2}}</p>
-    <p class="card-text">{{ingredient3}}</p>
-    <p class="card-text">{{ingredient4}}</p>
-    <p class="card-text">{{ingredient5}}</p>
-    <p class="card-text">{{ingredient6}}</p>
-    <p class="card-text">{{ingredient7}}</p>
-    <p class="card-text">{{ingredient8}}</p>
-    <p class="card-text">{{ingredient9}}</p>
-    <p class="card-text"><b>Preparation:</b><br><br>{{instructions}}</p>
-  </div>
-  <b></b>
+<div id="edit-cocktail">
+  {{#each cocktail}}
+    <div class="card text-white bg-dark mb-4" style="max-width: 100rem;">
+      <div class="card-header"><b>Author: {{author}}</b></div>
+      <div class="card-body">
+        <h4 class="card-title"><b>{{name}}</b></h4>
+        <p class="card-text"><b>Ingredients:</b></p>
+        <p class="card-text">{{ingredient1}}</p>
+        <p class="card-text">{{ingredient2}}</p>
+        <p class="card-text">{{ingredient3}}</p>
+        <p class="card-text">{{ingredient4}}</p>
+        <p class="card-text">{{ingredient5}}</p>
+        <p class="card-text">{{ingredient6}}</p>
+        <p class="card-text">{{ingredient7}}</p>
+        <p class="card-text">{{ingredient8}}</p>
+        <p class="card-text">{{ingredient9}}</p>
+        <p class="card-text"><b>Preparation:</b><br><br>{{instructions}}</p>
+      </div>
+      <b></b>
+    </div>
+  {{/each}}
+  <button id="button-main" class="btn btn-secondary btn-lg btn-block" type="button"><a id="buttonNoStyle" href="/all-recipes">back to top</a></button>
 </div>
-{{/each}}
-<button id="button-main" class="btn btn-secondary btn-lg btn-block" type="button"><a id="buttonNoStyle" href="/all-recipes">back to top</a></button>

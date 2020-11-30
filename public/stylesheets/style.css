@@ -168,20 +168,20 @@ a {
 /******** RESPONSIVE ********/
 /****************************/
 
-@media (max-width: 415px) {
+@media (max-width: 321px) {
   #logo{
-    font-size: 45px;
+    font-size: 35px;
   }
   #footer{
-    font-size: 15px;
+    font-size: 10px;
   }
 
   .banner{
-    font-size: 26px;
+    font-size: 20px;
   }
   
   #bannerTitle{
-    font-size: 24px;
+    font-size: 18px;
   }
 }
 
@@ -202,19 +202,101 @@ a {
   }
 }
 
-@media (max-width: 321px) {
+@media (max-width: 415px) {
   #logo{
-    font-size: 35px;
+    font-size: 45px;
   }
   #footer{
-    font-size: 10px;
+    font-size: 15px;
   }
 
   .banner{
-    font-size: 20px;
+    font-size: 26px;
   }
   
   #bannerTitle{
-    font-size: 18px;
+    font-size: 24px;
   }
 }
+
+@media (min-width: 700px) {
+  #ourCocktails{
+    max-width: 60%;
+    margin: 0 auto;
+    
+  }
+  .titles{
+    text-align: left;
+  }
+  #userAuth{
+    padding-top: 20px;
+    max-width: 60%;
+    margin: 0 auto;
+  }
+  #edit-cocktail{
+    max-width: 60%;
+    margin: 0 auto;
+  }
+  #articles-global{
+    padding-top: 20px;
+    max-width: 70%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 800px) {
+  #ourCocktails{
+    max-width: 50%;
+    margin: 0 auto;
+    
+  }
+  .titles{
+    text-align: left;
+  }
+
+  #userAuth{
+    padding-top: 20px;
+    max-width: 50%;
+    margin: 0 auto;
+  }
+  #edit-cocktail{
+    max-width: 50%;
+    margin: 0 auto;
+  }
+  #articles-global{
+    padding-top: 20px;
+    max-width: 60%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1100px) {
+  #ourCocktails{
+    max-width: 40%;
+    margin: 0 auto;
+  }
+
+  .titles{
+    text-align: left;
+  }
+
+  #userAuth{
+    padding-top: 20px;
+    max-width: 40%;
+    margin: 0 auto;
+  }
+  #edit-cocktail{
+    max-width: 40%;
+    margin: 0 auto;
+  }
+  #articles-global{
+    padding-top: 20px;
+    max-width: 40%;
+    margin: 0 auto;
+  }
+}
+
+
+
+
+
