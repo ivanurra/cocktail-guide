@@ -27,8 +27,6 @@ const getCocktailInfo = ()=>{
         const titleInstructions = document.createElement('p')
         const instructions      = document.createElement('p')
         
-        
-        
         photo.innerHTML             = `<img class="img-fluid" src=${cocktail.strDrinkThumb} alt=${strDrink} width></img>`
         titleName.innerHTML         = '<p class="titles">Cocktail Name:</p>'
         name.innerText              = cocktail.strDrink
