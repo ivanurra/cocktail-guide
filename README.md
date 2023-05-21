@@ -27,14 +27,6 @@ Start your Express.js app at http://localhost:3000/
 $ npm start
 ```
 
-## Deployment 📦
-
-App designed and optimized for mobile devices.
-
-LIVE DEMO:
-
-https://cocktailguide.herokuapp.com/
-
 ## Built with 🛠️
 
 * [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) - Multi-cloud database service for MongoDB.
